@@ -1,6 +1,7 @@
 //npm i email-validator
 const mongoose=require('mongoose');
-const {db_link}=process.env         //||require('../secrets');
+let { db_link } = process.env        
+// let { db_link } = require("../secrets");
 const validator = require("email-validator"); // for check email is vaild or not
 
 mongoose.connect(db_link).then(function(db){

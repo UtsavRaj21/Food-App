@@ -1,6 +1,7 @@
  // is user logged in
  const jwt = require('jsonwebtoken');
- const {JWT_Key} = process.env         //|| require('../secrets');
+ let { JWT_Key } = process.env        
+ // let { JWT_Key } = require("../secrets");
  let userModel = require('../models/userModel')
 
  module.exports.protectedRoute = function protectedRoute(req, res, next) {

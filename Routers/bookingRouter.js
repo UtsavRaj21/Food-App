@@ -3,6 +3,8 @@ const express = require('express');
 let bookingRouter = express.Router();
 let bookingModel = require("../models/bookingModel")
 let userModel = require("../models/userModel");
+let { KEY_ID ,KEY_SECRET } = process.env        
+// let { KEY_ID ,KEY_SECRET } = require("../secrets");
 const { protectedRoute, bodyChecker, isAuthorized } = require("./authHelper");
 const { 
     getElement, getElements,
@@ -15,7 +17,7 @@ const getbookings = getElements(bookingModel);
 const getbookingById = getElementById(bookingModel);
 
 const Razorpay = require("razorpay");
-let { KEY_ID, KEY_SECRET } = process.env         //||  require("../secrets");
+
 var razorpay = new Razorpay({
     key_id: KEY_ID,
     key_secret: KEY_SECRET,

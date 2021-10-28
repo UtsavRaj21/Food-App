@@ -1,5 +1,6 @@
 const nodemailer =require('nodemailer');
-const {nodemailer_passkey}= process.env         //||require('../secrets');
+let { nodemailer_passkey} = process.env        
+// let { nodemailer_passkey } = require("../secrets");
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // https - 443 http 8080
 //userObj-> name email password 

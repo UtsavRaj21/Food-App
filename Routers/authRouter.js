@@ -7,7 +7,9 @@ const authRouter = express.Router();
 const userRouter = express.Router();
 const jwt = require('jsonwebtoken');
 //After deploy process.env ,, At local -> require
-const { JWT_Key } =process.env         //|| require('../secrets')
+let { JWT_Key } = process.env        
+// let { JWT_Key } = require("../secrets");
+
 var path = require('path');
 
 const signUpMail = require('../helpers/signupMail')

@@ -1,7 +1,8 @@
 //npm i email-validator
 const mongoose=require('mongoose');
 const bcrypt = require('bcrypt');
-const {db_link}=process.env         //||require('../secrets');
+let { db_link } = process.env        
+// let { db_link } = require("../secrets");
 const validator = require("email-validator"); // for check email is vaild or not
 
 mongoose.connect(db_link).then(function(db){
@@ -63,7 +64,7 @@ const userSchema=new mongoose.Schema({
 // userModel me user save hone se pehle ye chalega
 //if same password then it will not save in mongodb
 // hook
-userSchema.pre('save', function (next) {
+userSchema.pre('save',async function (next) {
     // do stuff
     const salt = await bcrypt.genSalt(10);
     //password convert text
